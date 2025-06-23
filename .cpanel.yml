@@ -1,8 +1,11 @@
 ---
 deployment:
   tasks:
-    - echo "Deployment started in the same directory"
-    - cd /home/saltaxpj/svu.jamous-tech.com/
+    - echo "Starting deployment"
+    - export DEPLOY_PATH=/home/saltaxpj/svu.jamous-tech.com/
+    # انسخ فقط الملفات والمجلدات المطلوبة، مع استثناء مجلد .git وملف .cpanel.yml
+    - rsync -av --exclude='.git' --exclude='.cpanel.yml' ./ $DEPLOY_PATH
+    - cd $DEPLOY_PATH
     - composer install --no-dev --optimize-autoloader
     - php artisan migrate --force
     - php artisan config:cache
