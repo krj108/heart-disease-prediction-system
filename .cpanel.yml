@@ -1,8 +1,8 @@
 ---
 deployment:
   tasks:
-    - echo " Starting deployment"
-    - echo "Current directory: $(pwd)"
+    - echo "Starting deployment"
+    - pwd
     - ls -la
     - rsync -av --exclude='.git' --exclude='.cpanel.yml' ./ /home/saltaxpj/svu.jamous-tech.com/
     - cd /home/saltaxpj/svu.jamous-tech.com/
