@@ -1,7 +1,8 @@
+---
 deployment:
   tasks:
     - echo "Deployment started in the same directory"
-    # لا تنسخ الملفات إلى مكان آخر، فقط قم بأي مهام أخرى تحتاجها مثل تركيب الحزم أو تشغيل السكريبتات
+    - cd /home/saltaxpj/svu.jamous-tech.com/
     - composer install --no-dev --optimize-autoloader
     - php artisan migrate --force
     - php artisan config:cache
